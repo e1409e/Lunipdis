@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\EstudiantesModel;
+use App\Models\HistorialMedicoModel;
 use Illuminate\Http\Request;
 
-class EstudiantesController extends Controller
+class HistorialMedicoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class EstudiantesController extends Controller
      */
     public function index()
     {
-        return view('estudiantes');
+        return view('info_medico.historial_medico');
     }
 
     /**
@@ -24,7 +24,7 @@ class EstudiantesController extends Controller
      */
     public function create()
     {
-        return view('formularios.agreg_E');
+        //
     }
 
     /**
@@ -41,10 +41,10 @@ class EstudiantesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\EstudiantesModel  $estudiantesModel
+     * @param  \App\Models\HistorialMedicoModel  $historialMedicoModel
      * @return \Illuminate\Http\Response
      */
-    public function show(EstudiantesModel $estudiantesModel)
+    public function show(HistorialMedicoModel $historialMedicoModel)
     {
         //
     }
@@ -52,10 +52,10 @@ class EstudiantesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\EstudiantesModel  $estudiantesModel
+     * @param  \App\Models\HistorialMedicoModel  $historialMedicoModel
      * @return \Illuminate\Http\Response
      */
-    public function edit(EstudiantesModel $estudiantesModel)
+    public function edit(HistorialMedicoModel $historialMedicoModel)
     {
         //
     }
@@ -64,10 +64,10 @@ class EstudiantesController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\EstudiantesModel  $estudiantesModel
+     * @param  \App\Models\HistorialMedicoModel  $historialMedicoModel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, EstudiantesModel $estudiantesModel)
+    public function update(Request $request, HistorialMedicoModel $historialMedicoModel)
     {
         //
     }
@@ -75,10 +75,10 @@ class EstudiantesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\EstudiantesModel  $estudiantesModel
+     * @param  \App\Models\HistorialMedicoModel  $historialMedicoModel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(EstudiantesModel $estudiantesModel)
+    public function destroy(HistorialMedicoModel $historialMedicoModel)
     {
         //
     }

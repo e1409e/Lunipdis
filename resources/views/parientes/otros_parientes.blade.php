@@ -27,38 +27,23 @@
             </thead>
             <tbody>
               <!-- Aquí iría el contenido de la base de datos -->
-              <?php 
-                include("../connect.php");
-                $select = "SELECT b.id_pariente, CONCAT(a.nombres, ' ', a.apellidos, ' C.I: ', a.cedula) AS Estudiante, b.nombre_pariente, b.apellido_pariente, b.fecha_nacimiento, b.ocupacion, b.parentesco FROM otros_parientes b INNER JOIN estudiantes a ON a.id_estudiante = b.id_estudiante;";
-                $resultados = mysqli_query($conn, $select);
-
-                while($row = mysqli_fetch_array($resultados)){ ?>
                   <tr>
-                    <!-- columnas de la tabla en mysql-->
-                    <td class="text-nowrap col-auto"></td>
-                    <td class="text-nowrap col-auto"><?php echo $row['id_pariente'] ?></td>
-                    <td class="text-nowrap col-auto"><?php echo $row['Estudiante'] ?></td>
-                    <td class="text-nowrap col-auto"><?php echo $row['nombre_pariente'] ?></td>
-                    <td class="text-nowrap col-auto"><?php echo $row['apellido_pariente'] ?></td>
-                    <td class="text-nowrap col-2"><?php echo $row['fecha_nacimiento'] ?></td>
-                    <td class="text-nowrap col-auto"><?php echo $row['ocupacion'] ?></td>
-                    <td class="text-nowrap col-auto"><?php echo $row['parentesco'] ?></td>
-                    
+                  
                     
                   
 
                     <!--Botones de acciones-->
                       <td>
                         <div class="btn-group">
-                          <a href="../edits/edit_OP.php?id=<?php echo $row['id_pariente']; ?>" class="btn btn-secondary d-inline-block"><i class="fa fa-pencil"></i></a>
+                          <a href="" class="btn btn-secondary d-inline-block"><i class="fa fa-pencil"></i></a>
 
 
-                          <a href="../deletes/delete_OP.php?id=<?php echo $row['id_pariente']; ?>" class="btn btn-danger d-inline-block"><i class="fa fa-trash"></i></a>
+                          <a href="" class="btn btn-danger d-inline-block"><i class="fa fa-trash"></i></a>
                         </div>
                       </td> 
                   </tr>
 
-                          <?php } ?>     
+                    
 
             
             </tbody>
@@ -74,7 +59,7 @@
     $(document).ready(function() {
         $('#OP').DataTable({
             "language": {
-                "url": "/UNIPDIS/JS/es-ES.json"
+                "url": "{{ asset('JS/es-ES.json') }}"
             },
           "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ],
           "dom": 'Bflrtpi',

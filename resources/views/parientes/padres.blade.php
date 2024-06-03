@@ -85,7 +85,7 @@
     $(document).ready(function() {
         $('#padre').DataTable({
             "language": {
-                "url": "/UNIPDIS/JS/es-ES.json"
+                "url": "{{ asset('JS/es-ES.json') }}"
             },
           "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ],
           "dom": 'Bflrtpi',

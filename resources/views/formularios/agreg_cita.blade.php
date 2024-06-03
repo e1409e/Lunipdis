@@ -7,7 +7,7 @@
 <div class="container w-75">
 <h2 class="mt-5 item-title text-center ">Agregar Nueva Cita</h2> 
   <div class="card card-body mb-3 kardA">
-     <form action="/UNIPDIS/includes/guardados/save_citas.php" method="POST" class="row justify-content-center needs-validation" novalidate>
+     <form action="{{ route('citas.store') }}" method="POST" class="row justify-content-center needs-validation" novalidate>
        
         <div class="form-group col-6">
             <label for="fecha_cita"><h6>Fecha de cita</h6></label>

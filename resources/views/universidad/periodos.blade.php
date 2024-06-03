@@ -43,11 +43,8 @@
             
             </tbody>
           </table>
-        <!-- </div>
 
-        <button class="btn btn-primary btn-sm" onclick="toggleSeccion()">Mostrar</button>  -->
-        <a href="">Nuevo</a>
-       
+          <a href="" class="btn btn-primary mb-3 mt-3">Nuevo</a>
     </div>
   </div>
 </div>
@@ -56,7 +53,7 @@
                 $('#Tper').DataTable(
                     {
                         "language":{
-                            "url":"/UNIPDIS/JS/es-ES.json"
+                            "url":"{{ asset('JS/es-ES.json') }}"
                         },
                         "dom": 'flrti',
                     }

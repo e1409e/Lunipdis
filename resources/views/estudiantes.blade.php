@@ -3,7 +3,7 @@
 @section('content')
 <div class="container mb-5 w-75">
     <h2 class="mt-5 text-center">ESTUDIANTES</h2>
-    <div class="card card-body kardE"> 
+    <div class="card card-body shadow kardE"> 
       
   
       <div class="table-responsive" > 
@@ -65,7 +65,7 @@
                             <a href="" class="btn btn-secondary d-inline-block"><i class="fa fa-pencil"></i></a>
   
   
-                            <a href=""" class="btn btn-danger d-inline-block"><i class="fa fa-trash"></i></a>
+                            <a href="" class="btn btn-danger d-inline-block"><i class="fa fa-trash"></i></a>
                           </div>
                         </td> 
                     </tr>
@@ -80,7 +80,7 @@
          
           
           
-          <a href="" class="btn btn-primary mb-3 mt-3">Nuevo</a>
+          <a href="{{ route('estudiantes.create') }}" class="btn btn-primary mb-3 mt-3">Nuevo</a>
          
           
           
@@ -95,7 +95,7 @@
       $(document).ready(function() {
           $('#estu').DataTable({
               "language": {
-                  "url": "/UNIPDIS/JS/es-ES.json"
+                  "url": "{{ asset('JS/es-ES.json') }}"
               },
             "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ],
             "dom": 'Bflrtpi',

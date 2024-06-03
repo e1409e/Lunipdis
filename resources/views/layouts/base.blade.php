@@ -44,9 +44,9 @@
     <script src="{{ asset('JS/fontA.js') }}"></script>
 
 
-    <nav class="navbar navbar-expand-lg bg-primary justify-content-between">
+  <nav class="navbar navbar-expand-lg bg-primary  shadow-lg justify-content-between">
   <div class="container-fluid">
-    <a class="navbar-brand">
+    <a class="navbar-brand bg-transparent shadow">
       <img src="{{ asset('img/logoUJGH.png') }}" alt="Logo" width="165" class="img-fluid d-inline-block align-text-center">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -56,23 +56,23 @@
         <ul class="navbar-nav ">
 
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href=""><i class="fa fa-house"></i>   Inicio</a>
+              <a class="nav-link active" aria-current="page" href="/"><i class="fa fa-house"></i>   Inicio</a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href=""><i class="fa fa-school"></i>   Estudiantes</a>
+              <a class="nav-link" href="{{ route('estudiantes.index') }}"><i class="fa fa-school"></i>   Estudiantes</a>
             </li>
 
            
 
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-labelledby="defaultDropdown">
                 <i class="fa fa-people-roof"></i>   Parientes
               </a>
 
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="">Representante</a></li>
-                <li><a class="dropdown-item" href="">Otros Parientes</a></li>
+                <li><a class="dropdown-item" href="{{ route('padres.index') }}">Representante</a></li>
+                <li><a class="dropdown-item" href="{{ route('parientes.index') }}">Otros Parientes</a></li>
               </ul>
 
             <li class="nav-item dropdown">
@@ -81,11 +81,11 @@
               </a>
 
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="">Citas</a></li>
-                <li><a class="dropdown-item" href="">Discapacidades</a></li>
-                <li><a class="dropdown-item" href="">Historial Medico</a></li>
-                <li><a class="dropdown-item" href="">Incidencias</a></li>
-                <li><a class="dropdown-item" href="">Reporte Psicologico</a></li>
+                <li><a class="dropdown-item" href="{{ route('citas.index') }}">Citas</a></li>
+                <li><a class="dropdown-item" href="{{ route('discapacidades.index') }}">Discapacidades</a></li>
+                <li><a class="dropdown-item" href="{{ route('historialmedico.index') }}">Historial Medico</a></li>
+                <li><a class="dropdown-item" href="{{ route('incidencias.index') }}">Incidencias</a></li>
+                <li><a class="dropdown-item" href="{{ route('reportePisco.index') }}">Reporte Psicologico</a></li>
               </ul>
 
             <li class="nav-item dropdown ">
@@ -94,9 +94,9 @@
               </a>
 
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="">Facultades</a></li>
-                <li><a class="dropdown-item" href="">Carreras</a></li>
-                <li><a class="dropdown-item" href="">Periodos</a></li>
+                <li><a class="dropdown-item" href="/Facultades">Facultades</a></li>
+                <li><a class="dropdown-item" href="/carreras">Carreras</a></li>
+                <li><a class="dropdown-item" href="{{ route('periodos.index') }}">Periodos</a></li>
               </ul>
 
               
@@ -110,7 +110,7 @@
     </li>
   </div>
 </nav>    
-    
+  
 
 </head>
 <body>

@@ -7,8 +7,8 @@
 <h2 class="mt-5 item-title text-center ">Agregar Nuevos Estudiantes</h2> 
   
   <div class="card card-body mb-3 kardA">
-     <form action="/UNIPDIS/includes/guardados/save_E.php" method="POST" class="row justify-content-center align-items-center needs-validation" novalidate>
-      
+     <form action="{{ route('estudiantes.store')}}" method="POST" class="row justify-content-center align-items-center needs-validation" novalidate>
+      @csrf
         
         
         <div class="form-group col-6  mt-2">

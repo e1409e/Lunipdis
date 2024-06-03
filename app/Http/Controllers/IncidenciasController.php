@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\EstudiantesModel;
+use App\Models\IncidenciasModel;
 use Illuminate\Http\Request;
 
-class EstudiantesController extends Controller
+class IncidenciasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class EstudiantesController extends Controller
      */
     public function index()
     {
-        return view('estudiantes');
+        return view('info_medico.incidencias');
     }
 
     /**
@@ -24,7 +24,7 @@ class EstudiantesController extends Controller
      */
     public function create()
     {
-        return view('formularios.agreg_E');
+        //
     }
 
     /**
@@ -41,10 +41,10 @@ class EstudiantesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\EstudiantesModel  $estudiantesModel
+     * @param  \App\Models\IncidenciasModel  $incidenciasModel
      * @return \Illuminate\Http\Response
      */
-    public function show(EstudiantesModel $estudiantesModel)
+    public function show(IncidenciasModel $incidenciasModel)
     {
         //
     }
@@ -52,10 +52,10 @@ class EstudiantesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\EstudiantesModel  $estudiantesModel
+     * @param  \App\Models\IncidenciasModel  $incidenciasModel
      * @return \Illuminate\Http\Response
      */
-    public function edit(EstudiantesModel $estudiantesModel)
+    public function edit(IncidenciasModel $incidenciasModel)
     {
         //
     }
@@ -64,10 +64,10 @@ class EstudiantesController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\EstudiantesModel  $estudiantesModel
+     * @param  \App\Models\IncidenciasModel  $incidenciasModel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, EstudiantesModel $estudiantesModel)
+    public function update(Request $request, IncidenciasModel $incidenciasModel)
     {
         //
     }
@@ -75,10 +75,10 @@ class EstudiantesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\EstudiantesModel  $estudiantesModel
+     * @param  \App\Models\IncidenciasModel  $incidenciasModel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(EstudiantesModel $estudiantesModel)
+    public function destroy(IncidenciasModel $incidenciasModel)
     {
         //
     }

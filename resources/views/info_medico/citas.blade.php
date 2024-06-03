@@ -41,9 +41,8 @@
             </tbody>
           </table>
 
-        <!-- </div> -->
-        <!-- <button class="btn btn-outline-info btn-xs" onclick="toggleSeccion()">Mostrar/Ocultar</button>   -->
-        <a href="" class="btn btn-primary mb-3 mt-3">Nuevo</a>
+       
+        <a href="{{ route('citas.create')}}" class="btn btn-primary mb-3 mt-3">Nuevo</a>
        
 
     </div>
@@ -54,7 +53,7 @@
     $(document).ready(function() {
         $('#Tcitas').DataTable({
             "language": {
-                "url": "/UNIPDIS/JS/es-ES.json"
+                "url": "{{ asset('JS/es-ES.json') }}"
             },
           "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ],
           "dom": 'Bflrtpi',
