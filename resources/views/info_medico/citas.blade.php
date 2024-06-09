@@ -3,8 +3,14 @@
 @section('content')
 
 <div class="container w-75">
+  @if(Session::get('success'))
+    <div class="alert alert-success mt-2">
+      <strong>{{Session::get('success')}}</strong> <br>
+</div>
+
+  @endif
   <h2 class="mt-5 text-center">CITAS</h2>
-  <div class="card card-body kardE">
+  <div class="card card-body kardE shadow">
   
     <div class="table-responsive" > 
         

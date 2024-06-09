@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CitasModel;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class CitasController extends Controller
@@ -33,9 +34,15 @@ class CitasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request):RedirectResponse
     {
-        //
+        $request->validate([
+            'fecha_cita' => 'required',
+            'motivo_cita' => 'required'
+        ]);
+        
+       CitasModel::create($request->all());
+       return redirect()->route('citas.index')->with('success', 'Cita Programada Correctamente');
     }
 
     /**
