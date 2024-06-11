@@ -12,7 +12,7 @@
 
             <div class="col-6 mt-2">
             <h6 for="opciones">Estudiante:</h6>
-                <select class="form-select estuselect2" aria-label="Default select example" name="estudiantes_id" id="estudiantes_uni" required>
+                <select class="form-select estuselect2" aria-label="Default select example" name="id_estudiante" id="estudiantes_uni" required>
                    <option></option>
                    
                 </select>

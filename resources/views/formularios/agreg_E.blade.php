@@ -2,7 +2,25 @@
 
 @section('content')
 
+@php
+    use Illuminate\Support\Facades\DB;
+    $registros = DB::table('discapacidades')->get();
+@endphp  
+                
+
 <div class="container w-75">
+    @if ($errors->any())
+  <br>
+  <br>
+  <div class="alert alert-danger">
+      <strong>Error inesperado</strong> Algo fue mal..<br><br>
+      <ul>
+          @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+          @endforeach
+      </ul>
+  </div>
+@endif
 
 <h2 class="mt-5 item-title text-center ">Agregar Nuevos Estudiantes</h2> 
   
@@ -13,7 +31,7 @@
         
         <div class="form-group col-6  mt-2">
             <label for="nombre"><h6>Nombre del Estudiante:</h6></label>
-            <input type="text" name="nombre" id="nombre" class="form-control" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ]+"  minlength="2" maxlength="50" required>
+            <input type="text" name="nombres" id="nombre" class="form-control" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ]+"  minlength="2" maxlength="50" required>
             <div class="valid-feedback"></div>
             <div class="invalid-feedback">Es necesario llenar este campo</div>
         </div>
@@ -21,14 +39,14 @@
         
         <div class="form-group col-6 mt-2">
             <label for="apellido"><h6>Apellido del Estudiante:</h6></label>
-            <input type="text" name="apellido" id="apellido" class="form-control" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ]+" minlength="2" maxlength="50" required>
+            <input type="text" name="apellidos" id="apellido" class="form-control" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ]+" minlength="2" maxlength="50" required>
             <div class="valid-feedback"></div>
             <div class="invalid-feedback">Es necesario llenar este campo</div>
         </div>
 
           <div class="form-group col-6 mt-2">
             <label for="fechN"><h6>Fecha de Nacimiento:</h6></label>
-            <input type="date" name="fechN" id="fechN" class="form-control" required>
+            <input type="date" name="fecha_nacimiento" id="fechN" class="form-control" required>
             <div class="valid-feedback"></div>
             <div class="invalid-feedback">Es necesario llenar este campo</div>
         </div>
@@ -80,7 +98,10 @@
         <div class="col-6 mt-4">
         <h6 for="opciones">Discapacidad:</h6>
                 <select class="form-select discselect2" aria-label="Default select example" name="discapacidad_id" id="discapacidad" required>
-                   <option></option>
+                    <option value=" ">Seleccione una Discapacidad</option>
+                    @foreach ($registros as $registro)
+                     <option value="{{ $registro->id_discapacidad }}">{{ $registro->discapacidades}}</option>
+                    @endforeach  
                    
                 </select>
                 <div class="valid-feedback"></div>

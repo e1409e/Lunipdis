@@ -5,39 +5,29 @@
     <meta charset="utf-8">
     <title>UNIPDIS</title>
 
+     <!-- jQuery Library -->
+     <script src="{{ asset('JS/jquery-3.7.1.js') }}"></script>
+     <script src="{{ asset('JS/popper.min.js') }}"></script>
+
     <!-- <!– Bootstrap –> -->
-    <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}"/>  
+    <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}"/>
+    <script src="{{ asset('bootstrap/js/bootstrap.js') }}"></script>
+    <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('bootstrap/js/bootstrap.esm.js') }}"></script>   
 
     <!-- <!– Mi conf css –> -->
-    <link href="{{ asset('css/estilos.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/extras.css') }}" rel="stylesheet">
+    <link href="{{ asset('CSS/estilos.css') }}" rel="stylesheet">
+    <link href="{{ asset('CSS/extras.css') }}" rel="stylesheet">
     <!-- select2 css-->
     <link href="{{ asset('select2/css/select2.min.css') }}" rel="stylesheet" />
  
-
-    <!-- <!– jQuery –> -->
-    <script src="{{ asset('JS/jquery-3.7.1.js') }}"></script>
-
-    <!-- <!– DataTables Stylesheet –> -->
-    <link href="{{ asset('DataTables/datatables.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('DataTables/datatables.css') }}" rel="stylesheet">
-    <link href="{{ asset('DataTables/dataTables.dataTables.css') }}" rel="stylesheet">
-    <link href="{{ asset('DataTables/responsive.dataTables.css') }}" rel="stylesheet">
-
-    <!-- <!– DataTables JavaScript –> -->
-    <script src="{{ asset('DataTables/datatables.min.js') }}"></script>
-    <script src="{{ asset('DataTables/datatables.js') }}"></script>
-    <script src="{{ asset('DataTables/dataTables.responsive.js') }}"></script>
-    <script src="{{ asset('DataTables/responsive.dataTables.js') }}"></script>
-    <script src="{{ asset('DataTables/pdfmake-0.2.7/pdfmake.js') }}"></script>
-    <script src="{{ asset('DataTables/pdfmake-0.2.7/pdfmake.min.js') }}"></script>
-    <script src="{{ asset('DataTables/pdfmake-0.2.7/vfs_fonts.js') }}"></script>
-    <script src="{{ asset('DataTables/JSZip-3.10.1/jszip.js') }}"></script>
-    <script src="{{ asset('DataTables/JSZip-3.10.1/jszip.min.js') }}"></script>
-    
-    <!-- select2 js-->
-    <script src="{{ asset('select2/js/select2.min.js') }}"></script>
-
+     <!-- <!– DataTables Stylesheet –> -->
+     <link href="{{ asset('DataTables/datatables.min.css') }}" rel="stylesheet">
+     <link href="{{ asset('DataTables/datatables.css') }}" rel="stylesheet">
+     <link href="{{ asset('DataTables/dataTables.dataTables.css') }}" rel="stylesheet">
+     <link href="{{ asset('DataTables/responsive.dataTables.css') }}" rel="stylesheet">
+   
 
     <!-- font awesome -->
     <link rel="stylesheet" href="{{ asset('CSS/font-awesome.min.css') }}">
@@ -113,6 +103,7 @@
   
 
 </head>
+
 <body>
   <div>
     @yield('content')
@@ -124,16 +115,34 @@
 
 
 <!-- SCRIPTS -->
+ 
     <!--BOOTSTRAP-->
-    <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script> 
+    
 
-     <!-- jQuery Library -->
-     <script src="{{ asset('/js/jquery-3.7.1.js') }}"></script>
-     <script src="{{ asset('/js/popper.min.js') }}"></script>
+    
 
     <!-- validacion de campos -->
-    <script src="{{ asset('js/validacion_bootstrap.js') }}"></script>
+    <script src="{{ asset('JS/validacion_bootstrap.js') }}"></script>
+
+    
+ 
+   <!-- <!– DataTables JavaScript –> -->
+<script src="{{ asset('DataTables/datatables.min.js') }}"></script>
+<script src="{{ asset('DataTables/datatables.js') }}"></script>
+<script src="{{ asset('DataTables/dataTables.responsive.js') }}"></script>
+<script src="{{ asset('DataTables/responsive.dataTables.js') }}"></script>
+<script src="{{ asset('DataTables/pdfmake-0.2.7/pdfmake.js') }}"></script>
+<script src="{{ asset('DataTables/pdfmake-0.2.7/pdfmake.min.js') }}"></script>
+<script src="{{ asset('DataTables/pdfmake-0.2.7/vfs_fonts.js') }}"></script>
+<script src="{{ asset('DataTables/JSZip-3.10.1/jszip.js') }}"></script>
+<script src="{{ asset('DataTables/JSZip-3.10.1/jszip.min.js') }}"></script>
+
+   
+
+    
+    
+    <!-- select2 js-->
+    <script src="{{ asset('select2/js/select2.min.js') }}"></script>
 
 <script type="text/javascript">
     $(document).ready(function() {

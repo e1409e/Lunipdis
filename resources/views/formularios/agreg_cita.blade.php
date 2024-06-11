@@ -2,8 +2,9 @@
 
 @section('content')
 
-
-
+@php
+    use Illuminate\Support\Facades\DB;
+@endphp 
 <div class="container w-75">
 
 @if ($errors->any())
@@ -43,11 +44,20 @@
 
         <div class="col-12 mt-3">
         <h6 for="opciones">Estudiante:</h6>
+                
+              @php
+                  $registros = DB::table('estudiantes')->get();
+              @endphp  
+                
+                    
+                
                 <select class="form-select estuselect2" aria-label="Default select example" name="id_estudiante" id="Estudiante_cita">
-                   <option value="1">Seleccione un Estudiante</option>
-                   
+                  <option value=" ">Seleccione a un Estudiante</option>
+                  @foreach ($registros as $registro)
+                   <option value="{{ $registro->id_estudiante }}">{{ $registro->nombres}} {{$registro->apellidos}} {{$registro->cedula}}</option>
+                  @endforeach   
                 </select>
-
+                
                 
         </div>        
 

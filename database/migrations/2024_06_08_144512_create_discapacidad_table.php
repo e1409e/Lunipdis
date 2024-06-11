@@ -14,8 +14,7 @@ class CreateDiscapacidadTable extends Migration
     public function up()
     {
         Schema::create('discapacidad', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-            $table->increments('id')->id('id_discapacidad');
+            $table->id('id_discapacidad')->autoIncrement();
             $table->string('discapacidades', 50);
         });
     }

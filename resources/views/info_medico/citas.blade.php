@@ -6,11 +6,11 @@
   @if(Session::get('success'))
     <div class="alert alert-success mt-2">
       <strong>{{Session::get('success')}}</strong> <br>
-</div>
+    </div>
 
   @endif
   <h2 class="mt-5 text-center">CITAS</h2>
-  <div class="card card-body kardE shadow">
+  <div class="card card-body mb-3 kardE shadow">
   
     <div class="table-responsive" > 
         
@@ -20,41 +20,55 @@
                 <th class="col-auto"></th>
                 <th class="col-auto">#</th>
                 <th class="col-auto">Estudiante</th>
-                <th class="text-nowrap col-auto">Fecha de la Cita</th>
-                <th class="text-nowrap col-auto">Motivo de la Cita</th>
+                <th class="col-1 text-nowrap">Fecha de la Cita</th>
+                <th class="col-auto">Motivo de la Cita</th>
                 <th class="col-1">Acciones</th>
             
               </tr>
             </thead>
             <tbody>
               <!-- Aquí iría el contenido de la base de datos -->
-             
-                  <tr>
-                    <!-- columnas de la tabla en mysql-->
-                  
-                    <!--Botones de acciones-->
-                      <td>
-                        <div class="btn-group">
-                        <a href="" class="btn btn-secondary d-inline-block"><i class="fa fa-pencil"></i></a>
+              @foreach ($citas as $cita)
 
-                         <a href="" class="btn btn-danger d-inline-block"><i class="fa fa-trash"></i></a>
-                        </div> 
-                      </td> 
-                  </tr>
-                            
+                <tr>
+                  <!-- columnas de la tabla en mysql-->
+                  <td class="text-nowrap col-auto"></td>
+                  <td class="text-nowrap col-auto">{{$cita->id_citas}}</td>
+                  <td class="text-nowrap col-auto">{{$cita->estudiantes->nombres}}</td>
+                  <td class="text-nowrap text-left col-1" style="text-align: left;">{{$cita->fecha_cita}}</td>
+                  <td class="text-nowrap col-auto">{{$cita->motivo_cita}}</td>
+                  
+                  <!--Botones de acciones-->
+                    <td>
+                      <div class="btn-group">
+                      <a href="" class="btn btn-secondary d-inline-block"><i class="fa fa-pencil"></i></a>
+
+                      <a href="" class="btn btn-danger d-inline-block"><i class="fa fa-trash"></i></a>
+                      </div> 
+                    </td> 
+                </tr>
+                      
+                  
+              @endforeach
+                     
 
             
             </tbody>
           </table>
 
        
-        <a href="{{ route('citas.create')}}" class="btn btn-primary mb-3 mt-3">Nuevo</a>
+        
        
 
     </div>
+    <div class="d-flex justify-content-center">
+      <a href="{{ route('citas.create')}}" class="btn btn-primary mb-3 mt-3  w-50">Nuevo</a>
+    </div>
   </div>
      
-</div> 
+     
+</div>
+ 
 <script type="text/javascript">
     $(document).ready(function() {
         $('#Tcitas').DataTable({

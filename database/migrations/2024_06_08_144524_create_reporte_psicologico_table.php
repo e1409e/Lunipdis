@@ -14,7 +14,7 @@ class CreateReportePsicologicoTable extends Migration
     public function up()
     {
         Schema::create('reporte_psicologico', function (Blueprint $table) {
-            $table->id('id_psicologico');
+            $table->id('id_psicologico')->autoIncrement();
             $table->string('Nombre', 20);
             $table->string('Apellido', 20);
             $table->string('lugnac', 100);

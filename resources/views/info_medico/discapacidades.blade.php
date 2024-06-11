@@ -4,8 +4,14 @@
 
 
 <div class="container w-75">
+  @if(Session::get('success'))
+    <div class="alert alert-success mt-2">
+      <strong>{{Session::get('success')}}</strong> <br>
+    </div>
+
+  @endif
   <h2 class="mt-5 text-center">DISCAPACIDADES</h2>
-  <div class="card card-body kardE">
+  <div class="card card-body kardE shadow">
     
 
     <div class="table-responsive" > 
@@ -21,11 +27,16 @@
             </thead>
             <tbody>
               <!-- Aquí iría el contenido de la base de datos -->
-           
+                @foreach ($discapacidades as $discapacidad)
+                    
+                
                   <tr>
                     <!-- columnas de la tabla en mysql-->
+                      <td class="text-nowrap col-auto"></td>
+                      <td class="text-nowrap col-auto">{{$discapacidad->id_discapacidad}}</td>
+                      <td class="text-nowrap col-auto">{{$discapacidad->discapacidades}}</td>
                    
-                    <!--Botones de acciones-->
+                      <!--Botones de acciones-->
                       <td>
                         <div class="btn-group">
                           <a href="" class="btn btn-secondary d-inline-block"><i class="fa fa-pencil"></i></a>
@@ -34,16 +45,19 @@
                         </div>
                       </td> 
                   </tr>
-
+                @endforeach  
             
             </tbody>
           </table>
 
         <!-- </div>
         <button class="btn btn-outline-info btn-xs" onclick="toggleSeccion()">Mostrar/Ocultar</button>   -->
-        <a href="" class="btn btn-primary mb-3 mt-3">Nuevo</a>
+       
        
 
+    </div>
+    <div class="d-flex justify-content-center">
+      <a href="{{ route('discapacidades.create')}}" class="btn btn-primary mb-3 mt-3  w-50">Nuevo</a>
     </div>
   </div>
      

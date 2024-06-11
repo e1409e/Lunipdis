@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\CitasModel;
+use App\Models\EstudiantesModel;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CitasController extends Controller
 {
@@ -15,7 +17,15 @@ class CitasController extends Controller
      */
     public function index()
     {
-        return view('info_medico.citas');
+        $citas = CitasModel::all();
+        
+        return view('info_medico.citas', compact('citas'));
+    }
+    public function obtenerRegistros()
+    {
+        $registros = DB::table('citas')->get();
+    
+        return view('formularios.agreg_cita', compact('registros'));
     }
 
     /**

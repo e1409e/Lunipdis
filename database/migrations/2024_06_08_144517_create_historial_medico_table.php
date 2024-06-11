@@ -14,13 +14,11 @@ class CreateHistorialMedicoTable extends Migration
     public function up()
     {
         Schema::create('historial_medico', function (Blueprint $table) {
-            $table->id('id_historialmedico');
-            $table->integer('id_estudiante');
+            $table->id('id_historialmedico')->autoIncrement();
+            $table->integer('id_estudiante')->index('id_estudiante');
             $table->string('certificado_conapdis', 2);
             $table->text('informe_medico');
             $table->text('tratamiento');
-            
-            $table->foreign('id_estudiante', 'historial_medico_ibfk_1')->references('id_estudiante')->on('estudiantes');
         });
     }
 

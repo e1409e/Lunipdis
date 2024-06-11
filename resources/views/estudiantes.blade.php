@@ -37,38 +37,38 @@
               </thead>
               <tbody>
                 
-                
-                    <tr>
-                      <!-- columnas de la tabla en mysql-->
-                      <td class="text-nowrap col-auto"></td>
-                      <td class="text-nowrap col-auto"></td>
-                      <td class="text-nowrap col-auto"></td>
-                      <td class="text-nowrap col-auto"></td>
-                      <td class="text-nowrap col-auto"></td>
-                      <td class="text-nowrap col-auto"></td>
-                      <td class="text-nowrap col-auto"></td>
-                      <td class="text-nowrap col-auto"></td>
-                      <td class="text-nowrap col-auto"></td>
-                      <td class="text-nowrap col-auto"></td>
-                      <td class="text-nowrap col-auto"></td>
-                      <td class="text-nowrap col-auto"></td>
-                      <td class="text-nowrap col-auto"></td>
-                      <td class="text-nowrap col-auto"></td>
-                      <td class="text-nowrap col-auto"></td>
-                      <td class="text-nowrap col-auto"></td>
-                      <td class="text-nowrap col-auto"></td>
-                    
-  
-                      <!--Botones de acciones-->
-                        <td>
-                          <div class="btn-group">
-                            <a href="" class="btn btn-secondary d-inline-block"><i class="fa fa-pencil"></i></a>
-  
-  
-                            <a href="" class="btn btn-danger d-inline-block"><i class="fa fa-trash"></i></a>
-                          </div>
-                        </td> 
-                    </tr>
+                @foreach ($estudiantes as $estudiante)
+
+                <tr>
+                  <!-- columnas de la tabla en mysql-->
+                  <td class="text-nowrap col-auto"></td>
+                  <td class="text-nowrap col-auto">{{$estudiante->id_estudiante}}</td>
+                  <td class="text-nowrap col-auto">{{$estudiante->nombres}}</td>
+                  <td class="text-nowrap text-left col-1" style="text-align: left;">{{$estudiante->apellidos}}</td>
+                  <td class="text-nowrap col-auto">{{$estudiante->cedula}}</td>
+                  <td class="text-nowrap col-auto">{{$estudiante->telefono}}</td>
+                  <td class="text-nowrap col-auto">{{$estudiante->correo}}</td>
+                  <td class="text-nowrap col-auto">{{$estudiante->nombre_contacto}}</td>
+                  <td class="text-nowrap col-auto">{{$estudiante->telefono_contacto}}</td>
+                 
+                  <td class="text-nowrap col-auto">{{$estudiante->discapacidad_id}}</td>
+                  <td class="text-nowrap col-auto">{{$estudiante->observaciones}}</td>
+                  <td class="text-nowrap col-auto">{{$estudiante->seguimiento}}</td>
+                  <td class="text-nowrap col-auto">{{$estudiante->fecha_nacimiento}}</td>
+                  <td class="text-nowrap col-auto">{{$estudiante->fecha_registro}}</td>
+                  
+                  <!--Botones de acciones-->
+                    <td>
+                      <div class="btn-group">
+                      <a href="" class="btn btn-secondary d-inline-block"><i class="fa fa-pencil"></i></a>
+
+                      <a href="" class="btn btn-danger d-inline-block"><i class="fa fa-trash"></i></a>
+                      </div> 
+                    </td> 
+                </tr>
+                      
+                  
+              @endforeach
   
                                  
   

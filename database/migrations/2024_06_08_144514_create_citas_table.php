@@ -14,12 +14,10 @@ class CreateCitasTable extends Migration
     public function up()
     {
         Schema::create('citas', function (Blueprint $table) {
-            $table->id('id_citas');
-            $table->integer('id_estudiante');
+            $table->id('id_citas')->autoIncrement();
+            $table->integer('id_estudiante')->index('id_estudiante');
             $table->date('fecha_cita');
             $table->string('motivo_cita', 50);
-            
-            $table->foreign('id_estudiante', 'citas_ibfk_1')->references('id_estudiante')->on('estudiantes');
         });
     }
 

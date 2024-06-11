@@ -3,8 +3,10 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use  Illuminate\Database\QueryException;
 
 class CreateEstudiantesTable extends Migration
+
 {
     /**
      * Run the migrations.
@@ -15,23 +17,20 @@ class CreateEstudiantesTable extends Migration
     {
         Schema::create('estudiantes', function (Blueprint $table) {
 
-            $table->engine = 'InnoDB';
-            $table->increments('id')->id('id_estudiante');
-            $table->string('nombres', 50)->nullable();
-            $table->string('apellidos', 50)->nullable();
-            $table->string('cedula', 10)->nullable();
-            $table->string('telefono', 15)->nullable();
-            $table->string('correo', 50)->nullable();
+            $table->id('id_estudiante')->autoIncrement();
+            $table->string('nombres', 50);
+            $table->string('apellidos', 50);
+            $table->string('cedula', 10);
+            $table->string('telefono', 15);
+            $table->string('correo', 50);
             $table->string('nombre_contacto', 50);
-            $table->string('telefono_contacto', 15)->nullable();
-            $table->integer('discapacidad_id');
-            $table->integer('edad')->nullable();
-            $table->date('fecha_nacimiento')->nullable();
-            $table->text('observaciones')->nullable();
-            $table->text('seguimiento')->nullable();
-       
-            
-            $table->foreign('discapacidad_id', 'estudiantes_ibfk_3')->references('id_discapacidad')->on('discapacidad');
+            $table->string('telefono_contacto', 15);
+            $table->integer('id_discapacidad')->index('id_discapacidad');
+            $table->integer('edad');
+            $table->date('fecha_nacimiento');
+            $table->text('observaciones');
+            $table->text('seguimiento');
+
         });
     }
 

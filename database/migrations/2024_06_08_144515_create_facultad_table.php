@@ -14,7 +14,7 @@ class CreateFacultadTable extends Migration
     public function up()
     {
         Schema::create('facultad', function (Blueprint $table) {
-            $table->id('id_facultad');
+            $table->id('id_facultad')->autoIncrement();
             $table->string('facultades', 50);
             $table->string('Siglas', 5);
         });

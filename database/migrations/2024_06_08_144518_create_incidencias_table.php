@@ -14,16 +14,14 @@ class CreateIncidenciasTable extends Migration
     public function up()
     {
         Schema::create('incidencias', function (Blueprint $table) {
-            $table->id('id_incidencia');
-            $table->integer('id_estudiante');
+            $table->id('id_incidencia')->autoIncrement();
+            $table->integer('id_estudiante')->index('id_estudiante');
             $table->time('hora_incidente');
             $table->date('fecha_incidente');
             $table->text('donde_incidente');
             $table->text('descripcion_incidente');
             $table->text('acuerdos');
             $table->text('observaciones');
-            
-            $table->foreign('id_estudiante', 'incidencias_ibfk_1')->references('id_estudiante')->on('estudiantes');
         });
     }
 

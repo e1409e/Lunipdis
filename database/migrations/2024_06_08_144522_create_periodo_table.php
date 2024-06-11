@@ -14,7 +14,7 @@ class CreatePeriodoTable extends Migration
     public function up()
     {
         Schema::create('periodo', function (Blueprint $table) {
-            $table->id('id_periodo');
+            $table->id('id_periodo')->autoIncrement();
             $table->string('periodos', 50);
         });
     }

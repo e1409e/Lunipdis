@@ -14,7 +14,8 @@ class DiscapacidadesController extends Controller
      */
     public function index()
     {
-        return view('info_medico.discapacidades');
+        $discapacidades = DiscapacidadesModel::all();
+        return view('info_medico.discapacidades', compact('discapacidades'));
     }
 
     /**
@@ -24,7 +25,7 @@ class DiscapacidadesController extends Controller
      */
     public function create()
     {
-        //
+        return view('formularios.agreg_discapacidad');
     }
 
     /**
@@ -35,7 +36,13 @@ class DiscapacidadesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'discapacidades' => 'required',
+            
+        ]);
+        
+       DiscapacidadesModel::create($request->all());
+       return redirect()->route('discapacidades.index')->with('success', 'Discapacidad Guardada Correctamente');
     }
 
     /**

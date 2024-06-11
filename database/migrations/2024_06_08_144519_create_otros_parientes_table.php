@@ -14,15 +14,13 @@ class CreateOtrosParientesTable extends Migration
     public function up()
     {
         Schema::create('otros_parientes', function (Blueprint $table) {
-            $table->id('id_pariente');
-            $table->integer('id_estudiante');
+            $table->id('id_pariente')->autoIncrement();
+            $table->integer('id_estudiante')->index('id_estudiante');
             $table->string('nombre_pariente', 30);
             $table->string('apellido_pariente', 30);
             $table->date('fecha_nacimiento');
             $table->string('ocupacion', 50);
             $table->string('parentesco', 50);
-            
-            $table->foreign('id_estudiante', 'otros_parientes_ibfk_1')->references('id_estudiante')->on('estudiantes');
         });
     }
 

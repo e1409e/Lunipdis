@@ -14,7 +14,7 @@ class CreatePadresTable extends Migration
     public function up()
     {
         Schema::create('padres', function (Blueprint $table) {
-            $table->id('id_padres');
+            $table->id('id_padres')->autoIncrement();
             $table->string('tipo_familiar', 20);
             $table->integer('cedula_padre')->unique('cedula');
             $table->string('lugar_nacimiento', 100);
@@ -26,9 +26,7 @@ class CreatePadresTable extends Migration
             $table->string('municipio', 50);
             $table->string('departamento', 50);
             $table->string('estadodo_civil', 20);
-            $table->integer('id_estudiante');
-            
-            $table->foreign('id_estudiante', 'fk_padres_idestu')->references('id_estudiante')->on('estudiantes')->onDelete('cascade');
+            $table->integer('id_estudiante')->index('id_estudiante');
         });
     }
 
