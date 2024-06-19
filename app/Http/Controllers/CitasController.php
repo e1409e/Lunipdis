@@ -74,7 +74,9 @@ class CitasController extends Controller
      */
     public function edit(CitasModel $citasModel)
     {
-        //
+        
+        $cita = CitasModel::findOrFail($citasModel);
+        return view('edits.edit_cita', compact('cita'));
     }
 
     /**

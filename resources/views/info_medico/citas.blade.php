@@ -41,7 +41,7 @@
                   <!--Botones de acciones-->
                     <td>
                       <div class="btn-group">
-                      <a href="" class="btn btn-secondary d-inline-block"><i class="fa fa-pencil"></i></a>
+                      <a href="{{ route('citas.edit', $cita)}}" class="btn btn-secondary d-inline-block"><i class="fa fa-pencil"></i></a>
 
                       <a href="" class="btn btn-danger d-inline-block"><i class="fa fa-trash"></i></a>
                       </div> 
