@@ -10,7 +10,7 @@ class CitasModel extends Model
     use HasFactory;
 
     protected $table = 'citas';
-    
+ 
     protected $primaryKey = 'id_citas';
     public $incrementing = true;
     protected  $fillable = ['id_estudiante', 'fecha_cita', 'motivo_cita'];

@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\CitasModel;
 use App\Models\EstudiantesModel;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\View as FacadesView;
 
 class CitasController extends Controller
 {
@@ -72,11 +74,12 @@ class CitasController extends Controller
      * @param  \App\Models\CitasModel  $citasModel
      * @return \Illuminate\Http\Response
      */
-    public function edit(CitasModel $citasModel)
+    public function edit($id): View
     {
         
-        $cita = CitasModel::findOrFail($citasModel);
-        return view('edits.edit_cita', compact('cita'));
+       
+        $citas = CitasModel::findOrFail($id);
+        return view('edits.edit_cita', compact('citas'));
     }
 
     /**
@@ -86,9 +89,14 @@ class CitasController extends Controller
      * @param  \App\Models\CitasModel  $citasModel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CitasModel $citasModel)
+    public function update(Request $request, $id)
     {
-        //
+        $citas = CitasModel::findOrFail($id);
+        $citas->fecha_cita=$request->input('fecha_cita');
+        $citas->motivo_cita=$request->input('motivo_cita');
+        $citas->save();    
+        // $citas->update($request->all());
+         return redirect()->route('citas.index')->with('success', 'Cita Editada Correctamente');
     }
 
     /**
@@ -97,8 +105,10 @@ class CitasController extends Controller
      * @param  \App\Models\CitasModel  $citasModel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CitasModel $citasModel)
+    public function destroy($id)
     {
-        //
+        $citas = CitasModel::findOrFail($id);
+        $citas->delete();
+        return redirect()->route('citas.index')->with('success', 'Cita Eliminada Correctamente');
     }
 }

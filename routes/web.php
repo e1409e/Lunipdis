@@ -36,6 +36,7 @@ Route::get('/carreras', function () {
 
 
 
+
 Route::resource('estudiantes', EstudiantesController::class);
 Route::resource('padres', PadresController::class);
 Route::resource('parientes', ParientesController::class);
