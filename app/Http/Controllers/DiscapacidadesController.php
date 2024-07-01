@@ -62,9 +62,10 @@ class DiscapacidadesController extends Controller
      * @param  \App\Models\DiscapacidadesModel  $discapacidadesModel
      * @return \Illuminate\Http\Response
      */
-    public function edit(DiscapacidadesModel $discapacidadesModel)
+    public function edit($id)
     {
-        //
+        $discapacidades = DiscapacidadesModel::findOrFail($id);
+        return view('edits.edit_disc', compact('discapacidades'));
     }
 
     /**
@@ -74,9 +75,14 @@ class DiscapacidadesController extends Controller
      * @param  \App\Models\DiscapacidadesModel  $discapacidadesModel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, DiscapacidadesModel $discapacidadesModel)
+    public function update(Request $request, $id)
     {
-        //
+        $discapacidades = DiscapacidadesModel::findOrFail($id);
+        $discapacidades->discapacidades=$request->input('discapacidades');
+        
+        $discapacidades->save();    
+        
+         return redirect()->route('discapacidades.index')->with('success', 'Discapacidad Editada Correctamente');
     }
 
     /**
@@ -85,8 +91,16 @@ class DiscapacidadesController extends Controller
      * @param  \App\Models\DiscapacidadesModel  $discapacidadesModel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(DiscapacidadesModel $discapacidadesModel)
+    public function destroy($id)
     {
-        //
+        $discapacidades = DiscapacidadesModel::findOrFail($id);
+        $discapacidades->delete();
+        return redirect()->route('discapacidades.index')->with('success', 'Discapacidad Eliminada Correctamente');
+    }
+     public function obtenerRegistros()
+    {
+        $registros = DB::table('discapacidad')->get();
+    
+        return view('formularios.agreg_discapacidad', compact('registros'));
     }
 }

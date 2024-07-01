@@ -3,8 +3,15 @@
 @section('content')
 
 <div class="container w-75">
+  @if(Session::get('success'))
+    <div class="alert alert-success alert-dismissible fade show mt-2">
+      <strong>{{Session::get('success')}}</strong> 
+       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button><br>
+    </div>
+
+  @endif
   <h2 class="mt-5 text-center">HISTORIAL MEDICO</h2>
-  <div class="card card-body kardE">
+  <div class="card card-body shadow kardE mb-3">
   
     
 
@@ -27,30 +34,35 @@
             <tbody>
               <!-- Aquí iría el contenido de la base de datos -->
               
+               @foreach ($historiales as $historial)
                   <tr>
                     <!-- columnas de la tabla en mysql-->
+                      <td class="text-nowrap col-auto"></td>
+                      <td class="text-nowrap col-auto">{{$historial->id_historialmedico}}</td>
+                      <td class="text-nowrap col-auto">{{$historial->estudiantes->nombres}}</td>
+                      <td class="text-nowrap col-auto">{{$historial->certificado_conapdis}}</td>
+                      <td class="text-nowrap col-auto">{{$historial->informe_medico}}</td>
+                      <td class="text-nowrap col-1">{{$historial->tratamiento}}</td>
                    
-
-                    <!--Botones de acciones-->
+                      <!--Botones de acciones-->
                       <td>
                         <div class="btn-group">
-                          <a href="" class="btn btn-secondary d-inline-block"><i class="fa fa-pencil"></i></a>
+                          <a href="{{ route('historialmedico.edit', $historial->id_historialmedico)}}" class="btn btn-secondary d-inline-block"><i class="fa fa-pencil"></i></a>
 
-
-                          <a href="" class="btn btn-danger d-inline-block"><i class="fa fa-trash"></i></a>
+                          <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-delete-{{$historial->id_historialmedico}}">
+                              <i class="fa fa-trash"></i>
+                          </button>
                         </div>
                       </td> 
                   </tr>
-
-                       
-
-            
+                  @include('eliminar.elimHist')
+                @endforeach 
             </tbody>
           </table>
 
-        <!-- </div>
-        <button class="btn btn-outline-info btn-xs" onclick="toggleSeccion()">Mostrar/Ocultar</button>  -->
-        <a href="" class="btn btn-primary mb-3 mt-3">Nuevo</a> 
+        <div class="d-flex justify-content-center">
+           <a href="{{ route('historialmedico.create')}}" class="btn btn-primary mb-3 mt-3  w-50">Nuevo</a>
+        </div>
        
 
     </div>

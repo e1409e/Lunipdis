@@ -16,4 +16,9 @@ class EstudiantesModel extends Model
         
         return $this->belongsTo(CitasModel::class, 'id_estudiante', 'id_estudiante');
     }
+    public function Historial()
+    {
+        
+        return $this->belongsTo(HistorialMedicoModel::class, 'id_estudiante', 'id_estudiante');
+    }
 }

@@ -5,8 +5,9 @@
 
 <div class="container w-75">
   @if(Session::get('success'))
-    <div class="alert alert-success mt-2">
-      <strong>{{Session::get('success')}}</strong> <br>
+    <div class="alert alert-success alert-dismissible fade show mt-2">
+      <strong>{{Session::get('success')}}</strong> 
+       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button><br>
     </div>
 
   @endif
@@ -39,12 +40,15 @@
                       <!--Botones de acciones-->
                       <td>
                         <div class="btn-group">
-                          <a href="" class="btn btn-secondary d-inline-block"><i class="fa fa-pencil"></i></a>
+                          <a href="{{ route('discapacidades.edit', $discapacidad->id_discapacidad)}}" class="btn btn-secondary d-inline-block"><i class="fa fa-pencil"></i></a>
 
-                          <a href="" class="btn btn-danger d-inline-block"><i class="fa fa-trash"></i></a>
+                          <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-delete-{{$discapacidad->id_discapacidad}}">
+                              <i class="fa fa-trash"></i>
+                          </button>
                         </div>
                       </td> 
                   </tr>
+                  @include('eliminar.elimDisc')
                 @endforeach  
             
             </tbody>

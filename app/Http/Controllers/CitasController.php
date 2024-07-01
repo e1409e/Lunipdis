@@ -19,6 +19,7 @@ class CitasController extends Controller
      */
     public function index()
     {
+        
         $citas = CitasModel::all();
         
         return view('info_medico.citas', compact('citas'));

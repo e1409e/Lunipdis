@@ -14,7 +14,8 @@ class HistorialMedicoController extends Controller
      */
     public function index()
     {
-        return view('info_medico.historial_medico');
+        $historiales = HistorialMedicoModel::all();
+        return view('info_medico.historial_medico', compact('historiales'));
     }
 
     /**
@@ -24,7 +25,7 @@ class HistorialMedicoController extends Controller
      */
     public function create()
     {
-        //
+        return view('formularios.agreg_hist_medico');
     }
 
     /**
@@ -35,7 +36,9 @@ class HistorialMedicoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+       HistorialMedicoModel::create($request->all());
+       return redirect()->route('historialmedico.index')->with('success', 'Historial Guardado Correctamente');
     }
 
     /**
@@ -55,9 +58,10 @@ class HistorialMedicoController extends Controller
      * @param  \App\Models\HistorialMedicoModel  $historialMedicoModel
      * @return \Illuminate\Http\Response
      */
-    public function edit(HistorialMedicoModel $historialMedicoModel)
+    public function edit($id)
     {
-        //
+        $historiales = HistorialMedicoModel::findOrFail($id);
+        return view('edits.edit_hist', compact('historiales'));
     }
 
     /**
@@ -67,9 +71,16 @@ class HistorialMedicoController extends Controller
      * @param  \App\Models\HistorialMedicoModel  $historialMedicoModel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, HistorialMedicoModel $historialMedicoModel)
+    public function update(Request $request, $id)
     {
-        //
+        $historial = HistorialMedicoModel::findOrFail($id);
+        $historial->id_estudiante=$request->input('id_estudiante');
+        $historial->certificado_conapdis=$request->input('certificado_conapdis');
+        $historial->informe_medico=$request->input('informe_medico');
+        $historial->tratamiento=$request->input('tratamiento');
+
+        $historial->save();    
+        return redirect()->route('historialmedico.index')->with('success', 'Historial Editado Correctamente');
     }
 
     /**
@@ -78,8 +89,10 @@ class HistorialMedicoController extends Controller
      * @param  \App\Models\HistorialMedicoModel  $historialMedicoModel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(HistorialMedicoModel $historialMedicoModel)
+    public function destroy($id)
     {
-        //
+        $historial = HistorialMedicoModel::findOrFail($id);
+        $historial->delete();    
+        return redirect()->route('historialmedico.index')->with('success', 'Historial Eliminado Correctamente');
     }
 }
