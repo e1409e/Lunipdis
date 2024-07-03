@@ -1,12 +1,6 @@
 @extends('layouts.base')
 
-@section('content')
-
-@php
-    use Illuminate\Support\Facades\DB;
-    $registros = DB::table('discapacidades')->get();
-@endphp  
-                
+@section('content')       
 
 <div class="container w-75">
     @if ($errors->any())
@@ -75,11 +69,6 @@
             <div class="valid-feedback"></div>
             <div class="invalid-feedback">Es necesario llenar este campo</div>
         </div>
-
-       
-       
-        
-        
         
         <div class="form-group col-12 mt-2">
             <label for="observaciones"><h6>Observaciones:</h6></label>
@@ -99,8 +88,8 @@
         <h6 for="opciones">Discapacidad:</h6>
                 <select class="form-select discselect2" aria-label="Default select example" name="discapacidad_id" id="discapacidad" required>
                     <option value=" ">Seleccione una Discapacidad</option>
-                    @foreach ($registros as $registro)
-                     <option value="{{ $registro->id_discapacidad }}">{{ $registro->discapacidades}}</option>
+                    @foreach ($discapacidades as $discapacidad)
+                     <option value="{{ $discapacidad->id_discapacidad }}">{{ $discapacidad->discapacidades}}</option>
                     @endforeach  
                    
                 </select>
@@ -109,12 +98,15 @@
         </div>
 
 
-        
+        {{-- UNIVERSIDAD --}}
 
         <div class="col-6 mt-4">
             <h6 for="opciones">Carreras:</h6>
                 <select class="form-select estuselect2" aria-label="Default select example" name="carrera_id" id="carrera" required>
-                   <option></option>
+                   <option value=" ">Seleccione una Carrera</option>
+                   @foreach ($carreras as $carrera)
+                     <option value="{{ $carrera->id_carrera }}">{{ $carrera->carreras}}</option>
+                    @endforeach 
                     
                 </select>
                 <div class="valid-feedback"></div>
@@ -124,7 +116,10 @@
             <div class="col-6 mt-4 mb-4">
              <h6 for="opciones">Facultades:</h6>
                 <select class="form-select estuselect2" aria-label="Default select example" name="facultades_id" id="facultades" required>
-                   <option></option>
+                   <option value=" ">Seleccione una Facultad</option>
+                    @foreach ($facultades as $facultad)
+                     <option value="{{ $facultad->id_facultad }}">{{$facultad->facultades}}</option>
+                    @endforeach
                    
                 </select>
                 <div class="valid-feedback"></div>
@@ -135,7 +130,10 @@
             <div class="col-6 mt-4 mb-4">
             <h6 for="opciones">Periodo:</h6>
                 <select class="form-select estuselect2" aria-label="Default select example" name="periodo_id" id="periodo" required>
-                   <option></option>
+                   <option value=" ">Seleccione un Periodo</option>
+                   @foreach ($periodos as $periodo)
+                     <option value="{{ $periodo->id_periodo }}">{{$periodo->periodos}}</option>
+                    @endforeach
                    
                 </select>
                 <div class="valid-feedback"></div>
@@ -148,6 +146,8 @@
             <br>
             <hr>
         
+            {{-- REPRESENTANTE --}}
+            
         <h4 class="mt-3 mb-5 item-title text-center">Agregar Representante</h4>
 
         <div class="form-group col-6 mt-2">

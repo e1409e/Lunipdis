@@ -10,7 +10,9 @@ use App\Http\Controllers\HistorialMedicoController;
 use App\Http\Controllers\IncidenciasController;
 use App\Http\Controllers\ReportePsicoController;
 use App\Http\Controllers\PeriodosController;
-
+use App\Http\Controllers\FacultadController;
+use App\Http\Controllers\CarreraController;
+use App\Http\Controllers\UniversidadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,3 +48,6 @@ Route::resource('historialmedico', HistorialMedicoController::class);
 Route::resource('incidencias', IncidenciasController::class);
 Route::resource('reportePisco', ReportePsicoController::class);
 Route::resource('periodos', PeriodosController::class);
+Route::resource('facultades', FacultadController::class);
+Route::resource('carreras', CarreraController::class);
+Route::resource('universidad', UniversidadController::class);

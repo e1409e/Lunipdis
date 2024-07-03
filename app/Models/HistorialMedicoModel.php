@@ -19,9 +19,6 @@ class HistorialMedicoModel extends Model
 
     public function estudiantes()
     {
-        
-        
-        
         return $this->hasOne(EstudiantesModel::class, 'id_estudiante', 'id_estudiante');
     }
 

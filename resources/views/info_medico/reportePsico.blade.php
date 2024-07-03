@@ -3,6 +3,13 @@
 @section('content')
 
 <div class="container w-75">
+  @if(Session::get('success'))
+  <div class="alert alert-success alert-dismissible fade show mt-2">
+    <strong>{{Session::get('success')}}</strong> 
+     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button><br>
+  </div>
+
+@endif
   <h2 class="mt-5 text-center">Reportes Psicologicos</h2>
   <div class="card card-body kardE">
   
@@ -31,7 +38,9 @@
             </thead>
             <tbody>
               <!-- Aquí iría el contenido de la base de datos -->
-             
+                @foreach ($collection as $item)
+                    
+                @endforeach
                   <tr>
                     <!-- columnas de la tabla en mysql-->
                    

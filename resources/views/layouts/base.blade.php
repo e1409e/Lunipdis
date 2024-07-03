@@ -50,7 +50,7 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('estudiantes.index') }}"><i class="fa fa-school"></i>   Estudiantes</a>
+              <a class="nav-link" href="{{ route('universidad.index') }}"><i class="fa fa-school"></i>   Estudiantes</a>
             </li>
 
            

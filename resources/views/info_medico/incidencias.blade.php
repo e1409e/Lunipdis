@@ -4,8 +4,15 @@
 
 
 <div class="container w-75">
+  @if(Session::get('success'))
+    <div class="alert alert-success alert-dismissible fade show mt-2">
+      <strong>{{Session::get('success')}}</strong> 
+       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button><br>
+    </div>
+
+  @endif
   <h2 class="mt-5 text-center">INCIDENCIAS</h2>
-  <div class="card card-body kardE">
+  <div class="card card-body shadow kardE">
   
     
 
@@ -30,10 +37,20 @@
               </tr>
             </thead>
             <tbody>
-              <!-- Aquí iría el contenido de la base de datos -->
-             
+              
+            @foreach ($incidencias as $incidencia)
                   <tr>
-                    <!-- columnas de la tabla en mysql-->
+                    <td class="text-nowrap col-auto"></td>
+                    <td class="text-nowrap col-auto">{{$incidencia->id_incidencia}}</td>
+                    <td class="text-nowrap col-auto">{{$incidencia->Estudiante->nombres}}</td>
+                    <td class="text-nowrap col-auto">{{$incidencia->hora_incidente}}</td>
+                    <td class="text-nowrap col-auto">{{$incidencia->fecha_incidente}}</td>
+                    <td class="text-nowrap col-auto">{{$incidencia->lugar_incidente}}</td>
+                    <td class="text-nowrap col-auto">{{$incidencia->descripcion_incidente}}</td>
+                    <td class="text-nowrap col-auto">{{$incidencia->acuerdos}}</td>
+                    <td class="text-nowrap col-auto">{{$incidencia->observaciones}}</td>
+                    
+                    
                     
                     
 
@@ -47,7 +64,7 @@
                       </td> 
                   </tr>
 
-                            
+            @endforeach               
 
             
             </tbody>
@@ -56,7 +73,9 @@
 
       
       
-      <a href="" class="float-right btn btn-primary col-1 mb-3 mt-3">Nuevo</a>
+          <div class="d-flex justify-content-center">
+            <a href="{{ route('incidencias.create')}}" class="btn btn-primary mb-3 mt-3  w-50"><span>Nuevo</span></a>
+          </div>
     </div>
     
     

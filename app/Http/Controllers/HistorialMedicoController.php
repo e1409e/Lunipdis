@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\EstudiantesModel;
 use App\Models\HistorialMedicoModel;
+use App\Models\PadresModel;
+use App\Models\UniversidadModel;
 use Illuminate\Http\Request;
 
 class HistorialMedicoController extends Controller
@@ -60,8 +63,9 @@ class HistorialMedicoController extends Controller
      */
     public function edit($id)
     {
-        $historiales = HistorialMedicoModel::findOrFail($id);
-        return view('edits.edit_hist', compact('historiales'));
+        $estudiante = EstudiantesModel::findOrFail($id);
+       
+        return view('edits.edit_hist', compact('estudiante'));
     }
 
     /**

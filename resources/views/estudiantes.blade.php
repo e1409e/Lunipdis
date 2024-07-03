@@ -2,6 +2,13 @@
 
 @section('content')
 <div class="container mb-5 w-75">
+  @if(Session::get('success'))
+    <div class="alert alert-success alert-dismissible fade show mt-2">
+      <strong>{{Session::get('success')}}</strong> 
+       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button><br>
+    </div>
+
+  @endif
     <h2 class="mt-5 text-center">ESTUDIANTES</h2>
     <div class="card card-body shadow kardE"> 
       
@@ -38,6 +45,7 @@
               <tbody>
                 
                 @foreach ($estudiantes as $estudiante)
+               
 
                 <tr>
                   <!-- columnas de la tabla en mysql-->
@@ -51,23 +59,29 @@
                   <td class="text-nowrap col-auto">{{$estudiante->nombre_contacto}}</td>
                   <td class="text-nowrap col-auto">{{$estudiante->telefono_contacto}}</td>
                  
-                  <td class="text-nowrap col-auto">{{$estudiante->discapacidad_id}}</td>
+                  <td class="text-nowrap col-auto">{{$estudiante->discapacidades}}</td>
                   <td class="text-nowrap col-auto">{{$estudiante->observaciones}}</td>
                   <td class="text-nowrap col-auto">{{$estudiante->seguimiento}}</td>
                   <td class="text-nowrap col-auto">{{$estudiante->fecha_nacimiento}}</td>
                   <td class="text-nowrap col-auto">{{$estudiante->fecha_registro}}</td>
                   
+                  <td class="text-nowrap col-auto">{{$estudiante->Siglas}}</td>
+                  <td class="text-nowrap col-auto">{{$estudiante->carreras}}</td>
+                  <td class="text-nowrap col-auto">{{$estudiante->periodos}}</td>
+                  
                   <!--Botones de acciones-->
                     <td>
                       <div class="btn-group">
-                      <a href="" class="btn btn-secondary d-inline-block"><i class="fa fa-pencil"></i></a>
+                      <a href="{{ route('estudiantes.edit', $estudiante->id_estudiante)}}" class="btn btn-secondary d-inline-block"><i class="fa fa-pencil"></i></a>
 
-                      <a href="" class="btn btn-danger d-inline-block"><i class="fa fa-trash"></i></a>
+                      <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-delete-{{$estudiante->id_estudiante}}">
+                        <i class="fa fa-trash"></i>
+                      </button>
                       </div> 
                     </td> 
                 </tr>
                       
-                  
+                @include('eliminar.elimEstu')
               @endforeach
   
                                  
@@ -75,16 +89,13 @@
               
               </tbody>
             </table>
-  
-  
+
+          
+            <div class="d-flex justify-content-center">
+              <a href="{{ route('estudiantes.create')}}" class="btn btn-primary mb-3 mt-3  w-50"><span>Nuevo</span></a>
+            </div>
          
-          
-          
-          <a href="{{ route('estudiantes.create') }}" class="btn btn-primary mb-3 mt-3">Nuevo</a>
-         
-          
-          
-         
+
   
       </div>
     </div>
